@@ -1,0 +1,116 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "ec5f35c2-df56-4f95-a0c0-9ab9f8bc8bbd",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "quiz_results": {
+      "name": "quiz_results",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "display_name": {
+          "name": "display_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "class_name": {
+          "name": "class_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "character_id": {
+          "name": "character_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "score": {
+          "name": "score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "elapsed_seconds": {
+          "name": "elapsed_seconds",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "completed_at": {
+          "name": "completed_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "CURRENT_TIMESTAMP"
+        }
+      },
+      "indexes": {
+        "idx_quiz_results_ranking": {
+          "name": "idx_quiz_results_ranking",
+          "columns": [
+            "score",
+            "elapsed_seconds",
+            "completed_at"
+          ],
+          "isUnique": false
+        },
+        "idx_quiz_results_completed_at": {
+          "name": "idx_quiz_results_completed_at",
+          "columns": [
+            "completed_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "quiz_results_name_check": {
+          "name": "quiz_results_name_check",
+          "value": "\"quiz_results\".\"display_name\" IN ('Артём','Максим','Савелий','Кирилл')"
+        },
+        "quiz_results_class_check": {
+          "name": "quiz_results_class_check",
+          "value": "\"quiz_results\".\"class_name\" IN ('2 Ж','2 Д')"
+        },
+        "quiz_results_character_check": {
+          "name": "quiz_results_character_check",
+          "value": "\"quiz_results\".\"character_id\" IN ('inventor','researcher','dreamer')"
+        },
+        "quiz_results_score_check": {
+          "name": "quiz_results_score_check",
+          "value": "\"quiz_results\".\"score\" BETWEEN 0 AND 5"
+        },
+        "quiz_results_elapsed_check": {
+          "name": "quiz_results_elapsed_check",
+          "value": "\"quiz_results\".\"elapsed_seconds\" BETWEEN 1 AND 300"
+        }
+      }
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
