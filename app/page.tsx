@@ -4,7 +4,7 @@ import { CATS, CLASSES, NAMES, THEMES, type Theme } from "./data";
 type Result = { name:string; className:string; cat:string; score:number; time:number; theme:string; at:number };
 const STORAGE="kotoklass-leaderboard-v1";
 const fmt=(sec:number)=>`${Math.floor(sec/60)}:${String(sec%60).padStart(2,"0")}`;
-const PLAYER_PINS:Record<string,string>={"Савелий":"4564","Кирилл":"1332","Максим":"8861","Артём":"327"};
+const PLAYER_PINS:Record<string,string>={"Савелий":"4564","Кирилл":"1332","Максим":"8861","Артём":"3273"};
 
 export default function Home(){
   const [screen,setScreen]=useState<"start"|"pin"|"welcome"|"themes"|"quiz"|"result"|"rating">("start");
